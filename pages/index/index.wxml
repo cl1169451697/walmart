@@ -1,0 +1,98 @@
+<view class="container">
+  <!-- 位置 -->
+  <view class="location">
+    <text class="iconfont icon-jiazai location_icon"></text>
+    <text class="location_titme">武汉市江夏分店</text>
+    <text class="iconfont icon-jiantou"></text>
+  </view>
+  <!-- 扫商品 -->
+  <view class="sweep">
+    <!-- 上部分 -->
+    <view class="start_sweep">
+      <view class="start_sweep_shoop">
+        <view>扫商品</view>
+        <view>扫描商品条码, 快速核验出场</view>
+        <view>长按扫码按钮可连续扫描哦</view>
+      </view>
+      <view class="start_sweep_icon">
+        <view class="start_icon" bindtap="hanleSweep">
+          <view class="child">
+            <view class="iconfont icon-saomagou"></view>
+            <view>开始扫码</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 下部分 -->
+    <view class="start_sweep_nav">
+      <view bindtap="handleScan">
+        <text class="iconfont icon-gouwulan"></text>
+        <text>扫码购物篮</text>
+      </view>
+      <view>
+        <text class="iconfont icon-erweima2"></text>
+        <text>出场码</text>
+      </view>
+      <view bindtap="handleOrder">
+        <text class="iconfont icon-dingdan"></text>
+        <text>订单</text>
+      </view>
+    </view>
+    <!-- 隐藏部分 -->
+    <view class="strat_hide" wx:if="{{flag}}">
+      <view bindtap="handleDiscounts">
+        <text class="iconfont icon-youhuiquan"></text>
+        <text>我的优惠券</text>
+      </view>
+      <view>
+        <text class="iconfont icon-lipinka"></text>
+        <text>礼品卡礼单</text>
+      </view>
+    </view>
+    <view class="strat_show">
+      <text bindtap="handleShow" class="zhankai1">
+        {{flag?'收起':'展开'}}
+        <text class="iconfont {{flag?'icon-sanjiaoshang':'icon-sanjiao_xia'}} zhankai" ></text>
+      </text>
+    </view>
+  </view>
+  <!-- 领劵 -->
+  <view class="discounts_pad">
+    <view class="discounts">
+      <view class="discounts_youhui">
+        <view>
+          <text class="lingjuan">领劵中心</text>
+          <text class="day">神卷天天领</text>
+        </view>
+        <view>
+          <image src="http://qc1yb7690.bkt.clouddn.com/youhuijuan1.jpg" mode="widthFix"></image>
+        </view>
+      </view>
+      <view class="discounts_lipin">
+        <view>
+          <text class="lingjuan">购买礼品卡</text>
+          <text class="day">抢到就是赚到</text>
+        </view>
+        <view>
+          <image src="http://qc1yb7690.bkt.clouddn.com/youhuijuan.jpg" mode="widthFix"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- footer -->
+  <view class="footer">
+    <text><text class="iconfont icon-huaban"></text>教我使用</text>
+    <text class="seg">|</text>
+    <text><text class="iconfont icon-shoujihao"></text>解绑手机号</text>
+  </view>
+  <!-- 返回首页 -->
+  <view class="home">
+    <view class="home_yuan">
+      <view class="home_icon">
+      <text class="iconfont icon-shouye"></text>
+      <text class="iconfont icon-jiazai home_jiazai"></text>
+      </view>
+      <view class="home_item">返回首页</view>
+    </view>
+  </view>
+</view>

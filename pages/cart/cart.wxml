@@ -1,0 +1,89 @@
+<view class="shoop">
+    <view>商品</view>
+    <view bindtap="handelCompile">{{show?'编辑':'完成'}}</view>
+</view>
+<!-- 购物商品列表 -->
+<view class="commodity">
+    <view class="commodity_list" wx:for="{{list}}" wx:key="id">
+        <view class="commodity_list_head">{{item.Product.name}}</view>
+        <view class="commodity_list_bottom">
+            <view class="orgColor">￥{{item.Product.price}}</view>
+            <view class="jisuan" wx:if="{{show}}">
+                <view class="edd" bindtap="handelEdd" data-id="{{item.id}}" data-number="{{item.number}}">-</view>
+                <view class="item">{{item.number}}</view>
+                <view class="edd" bindtap="handelAdd" data-id="{{item.id}}">+</view>
+            </view>
+            <view class="clear" wx:else bindtap="removeRow" data-id="{{item.id}}">x</view>
+        </view>
+    </view>
+</view>
+<view class="hx"></view>
+<!-- 购物袋 -->
+<view class="shopBag">
+    <view class="bag">
+        <view>购物袋</view>
+        <view>
+            <text>已选小号1个</text>
+            <text>, 大号1个</text>
+            <text>￥0.9</text>
+        </view>
+    </view>
+    <view class="buyBag">
+        <view class="Bag_x Bag_right">
+            <view class="Bag_x_img"><image src="http://qc1yb7690.bkt.clouddn.com/woerma1.jpg" mode="widthFix"></image></view>
+            <view class="Bag_x_item">
+                <view>小号 ￥0.20</view>
+                <view class="jisuan">
+                    <view class="edd" bindtap="handelEdd">-</view>
+                    <view class="item">1</view>
+                    <view class="edd" bindtap="handelAdd">+</view>
+                </view>
+            </view>
+        </view>
+        <view class="Bag_x">
+            <view class="Bag_x_img"><image class="Bag_x_imgd" src="http://qc1yb7690.bkt.clouddn.com/woerma2.jpg" mode="widthFix"></image></view>
+            <view class="Bag_x_item">
+                <view>大号 ￥0.30</view>
+                <view class="jisuan">
+                    <view class="edd">-</view>
+                    <view class="item">1</view>
+                    <view class="edd">+</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 发票 -->
+<view class="invoice">
+    <view>发票</view>
+    <view class="invoice_icon">不要发票</view>
+</view>
+<view class="hx"></view>
+<!-- 优惠券 -->
+<view class="invoice">
+    <view>优惠券</view>
+    <view class="invoice_icon">未使用优惠券</view>
+</view>
+<view class="hx"></view>
+<!-- 商品金额 -->
+<view class="prices">
+    <view class="prices_num">
+        <view>商品金额</view>
+        <view class="orgColor">￥{{total_price1}}</view>
+    </view>
+    <view class="prices_disc">
+        <view>优惠合计</view>
+        <view class="discColor">-￥0.00</view>
+    </view>
+</view>
+<!-- 结算 -->
+<view class="close">
+    <view class="close_sm">
+        <view class="close_tj"></view>
+        <view class="close_icon" bindtap="hanleSweep"></view>
+        <view class="close_txm">扫不出来? 试试<text>输入条形码</text></view>
+    </view>
+    <view class="close_hj">合计: <text> ￥{{total_price1}}</text></view>
+    <view class="close_js {{number==0 ?'close_js2':''}}" wx:if="{{show}}" bindtap="handlePay">结算({{number}})</view>
+    <view class="clearCart" wx:else>清空购物车</view>
+</view>
